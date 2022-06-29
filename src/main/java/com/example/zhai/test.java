@@ -21,7 +21,6 @@ public class test {
         ZhaiResp zhaiResp = JSON.parseObject(resp, ZhaiResp.class);
         // System.out.println(zhaiResp);
         String queryCode = zhaiResp.getResult().getData()[0].getConvertStockCode();
-        String reqDetailCode = detailCodeUrl;
         String queryCodeUrl = "(SECURITY_CODE=\""+queryCode+"\"";
         String responseGu = HttpRequest.get(detailCodeUrl+URLEncoder.encode(queryCodeUrl, "utf-8")+")").body();
         GuResp guResp = JSON.parseObject(responseGu, GuResp.class);
@@ -33,6 +32,7 @@ public class test {
                 System.out.println(guItem.getMainpointContent());
             }
         }
+
     }
 }
 
